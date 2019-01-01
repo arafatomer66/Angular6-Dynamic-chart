@@ -9,9 +9,7 @@ import { Chart } from 'chart.js';
 })
 export class ChartComponent {
 
-  @Input('chartType') name :string  ;
-
-
+  @Input('chartType') name: string;
   chart = [];
 
   constructor(private data: DataFetchService) {
@@ -21,7 +19,6 @@ export class ChartComponent {
   ngOnInit() {
     this.data.getData()
       .subscribe(res => {
-
         // let temp_max = res['list'].map(res => res.main.temp_max)
         // let temp_min = res['list'].map(res => res.main.temp_min)
         // let alldates = res['list'].map(res => res.dt)
@@ -31,7 +28,6 @@ export class ChartComponent {
         //   let jsdate = new Date(res * 1000)
         //   weatherDates.push(jsdate.toLocaleTimeString('en', { year: 'numeric', month: 'short', day: 'numeric' }))
         // })
-
         this.chart = new Chart('canvas', {
           type: this.name,
           data: {
@@ -53,7 +49,6 @@ export class ChartComponent {
                 backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850"],
                 data: [2478, 5267, 734, 784, 433]
               }
-
             ]
           },
           options: {
@@ -68,7 +63,6 @@ export class ChartComponent {
             //     display: true
             //   }]
             // }
-
             legend: { display: false },
             title: {
               display: true,
